@@ -1,16 +1,18 @@
 import os
+from third_parties.linkedin import scrape_linkedin_profile
 from langchain import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import LLMChain
 from dotenv import load_dotenv
 
-information=""" 
+
+information = """ 
 david beckhaum.
 """
-if __name__ == "__main__": 
+if __name__ == "__main__":
     # Load environment variables from .env file
     load_dotenv()
-    # OPENAI_API_KEY="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"
+  
     print(os.environ["OPENAI_API_KEY"])
     # Access the environment variable
     # api_key = os.environ.get('OPENAI_API_KEY')
@@ -31,5 +33,8 @@ if __name__ == "__main__":
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
     chain = LLMChain(llm=llm, prompt=summary_prompt_template)
     
-    print(chain.run(information=information))
    
+#
+    linkedin_data=scrape_linkedin_profile(linkedin_profile_url='https://www.linkedin.com/in/mir-akbar-seyedi-9906b658/')
+    # print(linkedin_data.json()) 
+    print(chain.run(information=linkedin_data))
