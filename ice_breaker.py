@@ -10,7 +10,7 @@ david beckhaum.
 if __name__ == "__main__": 
     # Load environment variables from .env file
     load_dotenv()
-    # OPENAI_API_KEY="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"
+  
     print(os.environ["OPENAI_API_KEY"])
     # Access the environment variable
     # api_key = os.environ.get('OPENAI_API_KEY')
