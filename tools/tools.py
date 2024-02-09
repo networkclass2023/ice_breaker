@@ -4,6 +4,7 @@ from langchain_community.utilities import SerpAPIWrapper
 
 
 
+
 class CustomSerpAPIWrapper(SerpAPIWrapper):
     def __init__(self):
         super(CustomSerpAPIWrapper, self).__init__()
